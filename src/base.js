@@ -17,7 +17,7 @@
  * @param  {Object} [pending={}]
  * @return {Promise} resolved when the property is defined.
  */
-export function get(object={}, prop='', resolve={}, pending={}){
+function get(object={}, prop='', resolve={}, pending={}){
   if (prop in object) return object[prop];
   if (prop in pending) return pending[prop];
   return pending[prop] = new Promise((r) => resolve[prop] = r);
@@ -32,7 +32,7 @@ export function get(object={}, prop='', resolve={}, pending={}){
  * @param {Pending} [pending={}]
  * @return {any}
  */
-export function set(object={}, prop='', value, resolve={}, pending={}){
+function set(object={}, prop='', value, resolve={}, pending={}){
   if (prop in object) return object[prop] = value;
   if (prop in resolve){
     resolve[prop](object[prop] = value);
@@ -47,9 +47,11 @@ export function set(object={}, prop='', value, resolve={}, pending={}){
  * @param  {Pending} [pending={}]
  * @return {Object}
  */
-export function basicHandler(resolve={}, pending={}){
+function basicHandler(resolve={}, pending={}){
   return {
     get: (...args) => get(...args, resolve, pending),
     set: (...args) => set(...args, resolve, pending)
   };
 }
+
+module.exports = {basicHandler, get, set};

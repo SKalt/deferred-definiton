@@ -13,7 +13,9 @@
   },
   "homepage": "https://github.com/SKalt/deferred-definiton#readme",
   "scripts": {
-    "test": "tape"
+    "bundle:node": "",
+    "test": "tape",
+    "build": "webpack --mode=production --output-library-target=umd"
   },
   "keywords": [
     "Proxy",
@@ -27,6 +29,7 @@
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
     "tape": "^4.9.0",
-    "webpack": "^4.9.1"
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4"
   }
 }
