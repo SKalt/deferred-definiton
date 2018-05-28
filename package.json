@@ -1,0 +1,17 @@
+{
+  "name": "deferred-definition",
+  "version": "1.0.0",
+  "description": "Use promises to await property definitions on an object.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "tape"
+  },
+  "keywords": [
+    "Proxy",
+    "ES6",
+    "async",
+    "Promise"
+  ],
+  "author": "Steven Kalt <kalt.steven@gmail.com>",
+  "license": "MIT"
+}
