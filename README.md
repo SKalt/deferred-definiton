@@ -1,5 +1,6 @@
 # deferred-definition
-If you need to wait for an object property to be defined and other message passing just won't do it for you, this is your module. That said, you can probably
+If you need to wait for an object property to be defined and other message passing just won't do it for you, this is your module. That said using `deferred-definition` is an extreme measure.  There is almost definitely a more sensible async/await/event loop solution for your problem out there. Also, this module relies on Proxies, which *will* break most transpilation to ES5 since Babel does not support them.
+
 ## Installation
 ```
 # as a npm module (recommended)
