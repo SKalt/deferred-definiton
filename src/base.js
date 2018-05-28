@@ -1,5 +1,5 @@
 const debug = require('debug');
-debug.enable('deferrable:*');
+debug.disable('deferrable:*');
 /**
  * maps property names to promises resolved when the property is defined
  * @interface Pending
