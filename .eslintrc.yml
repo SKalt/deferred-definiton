@@ -24,14 +24,10 @@ rules:
       objects: "never"
       imports: "always-multiline"
       exports: "always-multiline"
-      functions: "always-multiline"
+      functions: "ignore"
   no-console: 2
   space-before-blocks: 0
-  no-unused-vars:
-    - error
-    - vars: all
-      args: all
-      ignoreRestSiblings: true
+
   no-unused-expressions: 2
   no-useless-computed-key: 2
   no-use-before-define: 2

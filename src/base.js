@@ -1,3 +1,5 @@
+const debug = require('debug');
+debug.enable('deferrable:*');
 /**
  * maps property names to promises resolved when the property is defined
  * @interface Pending
@@ -13,11 +15,13 @@
  * the base getter trap
  * @param  {Object} object       the object to proxy
  * @param  {String} prop         the property name
+ * @param  {Reciever} receiver
  * @param  {Resolve} [resolve={}]
  * @param  {Object} [pending={}]
  * @return {Promise} resolved when the property is defined.
  */
-function get(object={}, prop='', resolve={}, pending={}){
+function get(object={}, prop='', receiver, resolve={}, pending={}){
+  debug('deferrable:get')(resolve, prop, pending);
   if (prop in object) return object[prop];
   if (prop in pending) return pending[prop];
   return pending[prop] = new Promise((r) => resolve[prop] = r);
@@ -28,11 +32,13 @@ function get(object={}, prop='', resolve={}, pending={}){
  * @param {Object} [object={}]
  * @param {String} [prop='']
  * @param {any} value
+ * @param  {Reciever} receiver
  * @param {Resolve} [resolve={}]
  * @param {Pending} [pending={}]
  * @return {any}
  */
-function set(object={}, prop='', value, resolve={}, pending={}){
+function set(object={}, prop='', value, receiver, resolve={}, pending={}){
+  debug('deferrable:set')(resolve, prop, pending);
   if (prop in object) return object[prop] = value;
   if (prop in resolve){
     resolve[prop](object[prop] = value);

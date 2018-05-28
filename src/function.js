@@ -12,7 +12,7 @@ const {basicHandler} = require('./base.js');
  * let rvalue = deferred.property = 1; // rvalue: 1; logs: 1; logs: 2
  * // (order not guaranteed)
  */
-function deferrable(object) {
+function deferrable(object={}) {
   const pending = {};
   const resolve = {};
   return new Proxy(object, basicHandler(resolve, pending));

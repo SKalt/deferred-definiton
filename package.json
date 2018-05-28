@@ -14,7 +14,7 @@
   "homepage": "https://github.com/SKalt/deferred-definiton#readme",
   "scripts": {
     "bundle:node": "",
-    "test": "tape",
+    "test": "mocha",
     "build": "webpack --mode=production --output-library-target=umd"
   },
   "keywords": [
@@ -26,9 +26,10 @@
   "author": "Steven Kalt <kalt.steven@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "debug": "^3.1.0",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
-    "tape": "^4.9.0",
+    "mocha": "^5.2.0",
     "webpack": "^4.9.1",
     "webpack-cli": "^2.1.4"
   }
