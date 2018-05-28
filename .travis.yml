@@ -1,2 +1,11 @@
 language: node_js
 node_js: node
+deploy:
+  provider: npm
+  email: kalt.steven@gmail.com
+  api_key:
+    secure: crQA2wuvjy7hGFdKi7qFabiG+CdQw8+4JXb7uCC8XfJRXsoRCxEKD493YXgDKV1wbFtlrT/pZGFxME0f6n2XB/nkFtcRS3jnNkgz0FHC/SyjP90DZDinpkNjY5vXMnuMmCTRzDdX12I6e2rQAI9iiV4s8tBGL/ALKNDyHbqsvMD4EN/ifIkY3PWd2ny6jXwhOo4NhjA3JYmRbajCITUUGjKMmDRbcTSzPWgE2GRHFwLO/22mjpztH3mBYbTMtCHTbNtC0z2dbstVqLc6azzWxA/gfKTIqeuD1+DRpKPipkRmBbmlXBEzCz3wsflPIp+oN47DOt0Ndj74lO5UBymxRON9BQ9VfMzvSiGCgkAtbtMYptWyUUkc4Cm2iw3HGZ/W+lvzDcYOy+poJZ1ITROx+fScfNyFkpqQc7c6uXUBPBys/P1cuibz+7ibqN14Ey2rFUktIir/pte28ifTccrpwzY4YeCJ1dae8xnymDOTXlDmp2PLpSJPTyIfruokTa8rx2F+njlvCx7xIJhpGfFuU6gzSmZRYSpbXsGwT+W70jzcPbsIwRJAGmbh97EWAy3tWMaJ9V2eT1OtE5YpjBhoHSJitBLQDecfn6D/CjL/8kF6fH5J73XsWkcJkGjpbuNSgEurMMmfhsVoMG9SB/Yz5QEZ3C7aP/Np6Be3yZVsc8U=
+  on:
+    branch: master
+    tags: true
+    repo: SKalt/deferred-definiton

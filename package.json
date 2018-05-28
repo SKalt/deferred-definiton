@@ -13,7 +13,9 @@
   },
   "homepage": "https://github.com/SKalt/deferred-definiton#readme",
   "scripts": {
-    "bundle:node": "",
+    "preversion": "npm test",
+    "version": "npm run build && git add -Af dist",
+    "postversion": "git push && git push --tags && dist/*",
     "test": "mocha",
     "build": "webpack --mode=production --output-library-target=umd"
   },
