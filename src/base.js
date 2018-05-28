@@ -21,10 +21,12 @@ debug.enable('deferrable:*');
  * @return {Promise} resolved when the property is defined.
  */
 function get(object={}, prop='', receiver, resolve={}, pending={}){
-  debug('deferrable:get')(resolve, prop, pending);
+  debug('deferrable:get:args')({resolve, object, prop, pending});
   if (prop in object) return object[prop];
   if (prop in pending) return pending[prop];
-  return pending[prop] = new Promise((r) => resolve[prop] = r);
+  let pendingProperty = (pending[prop] = new Promise((r) => resolve[prop] = r));
+  debug('deferrable:get:after')({resolve, object, pendingProperty, pending});
+  return pendingProperty;
 }
 
 /**
@@ -38,14 +40,15 @@ function get(object={}, prop='', receiver, resolve={}, pending={}){
  * @return {any}
  */
 function set(object={}, prop='', value, receiver, resolve={}, pending={}){
-  debug('deferrable:set')(resolve, prop, pending);
-  if (prop in object) return object[prop] = value;
+  debug('deferrable:set:args')({prop, object, value, resolve, pending});
+  object[prop] = value;
   if (prop in resolve){
-    resolve[prop](object[prop] = value);
-    return delete resolve[prop]
-      && delete pending[prop]
-      && value;
+    resolve[prop](value);
+    delete resolve[prop];
+    delete pending[prop];
   }
+  debug('deferrable:set:after')({prop, object, object, resolve, value, pending});
+  return value;
 }
 /**
  * returns a proxy handler object. @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy#Methods_of_the_handler_object

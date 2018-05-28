@@ -32,4 +32,14 @@ describe('the return from deferrable()', ()=>{
       deferred.property = true;
     }
   );
+  it('should not return pending promises of defined properties', (done)=>{
+    const deferred = deferrable({defined: true});
+    assert.equal(deferred.defined, true);
+    deferred.newProperty = 'now defined';
+    assert.equal(deferred.newProperty, 'now defined');
+    let tbd = deferred.tbd; // eslint-disable-line
+    deferred.tbd = 'done';
+    assert.equal(deferred.tbd, 'done');
+    tbd.then(()=>done());
+  });
 });
