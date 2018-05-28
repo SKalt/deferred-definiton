@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "description": "Use promises to await property definitions on an object.",
   "main": "dist/index.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKalt/deferred-definiton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SKalt/deferred-definiton/issues"
+  },
+  "homepage": "https://github.com/SKalt/deferred-definiton#readme",
   "scripts": {
     "test": "tape"
   },
@@ -13,5 +22,10 @@
     "Promise"
   ],
   "author": "Steven Kalt <kalt.steven@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "tape": "^4.9.0",
+    "webpack": "^4.9.1"
+  }
 }
