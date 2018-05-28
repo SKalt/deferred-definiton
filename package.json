@@ -1,6 +1,6 @@
 {
   "name": "deferred-definition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use promises to await property definitions on an object.",
   "main": "src/index.js",
   "browser": "dist/main.js",
