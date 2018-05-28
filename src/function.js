@@ -18,6 +18,3 @@ function deferrable(object={}) {
   return new Proxy(object, basicHandler(resolve, pending));
 }
 module.exports = {deferrable};
-// what about... deep chaining with option 'recur'/'chain'?
-//               all-async option
-//               mixins for the proxy
