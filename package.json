@@ -2,8 +2,8 @@
   "name": "deferred-definition",
   "version": "1.0.0",
   "description": "Use promises to await property definitions on an object.",
-  "main": "dist/index.js",
-  "module": "src/index.js",
+  "main": "src/index.js",
+  "browser": "dist/main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SKalt/deferred-definiton.git"
@@ -15,7 +15,7 @@
   "scripts": {
     "preversion": "npm test",
     "version": "npm run build && git add -Af dist",
-    "postversion": "git push && git push --tags && dist/*",
+    "postversion": "git push && git push --tags",
     "test": "mocha",
     "build": "webpack --mode=production --output-library-target=umd"
   },
